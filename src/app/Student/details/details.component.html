@@ -1,0 +1,71 @@
+<div class="container">
+    .<div class="row mt-5">
+    
+      <div class="col-md-8">
+        <h2 class="h1 text-success my-4">Courses Join</h2>
+          <ng-container *ngIf="student.subjects && student.subjects.length>0; else elseTemplate">
+              <table class="table table-light ">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Total Degree</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let subject of student.subjects">
+                      <ng-container *ngIf="subject">
+                          <td>{{subject.name}}</td>
+                          <td>{{subject.totalDegree}}</td>
+                      </ng-container>
+                      
+                      
+                    </tr>
+                  </tbody>
+                </table>
+          </ng-container>
+          <ng-template #elseTemplate>
+            <div class="alert alert-info" role="alert">
+              Not Have Any Course
+            </div>
+          </ng-template>
+          
+        <hr>
+        <h2 class="h1 text-primary my-4">Courses Degree</h2>
+          <ng-container *ngIf="studentDeg && studentDeg.length>0; else else2">
+              <table class="table table-light">
+                  <thead>
+                    <tr>
+                      <th>Course Name</th>
+                      <th>Have Degree</th>
+                      <th>Total degree</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let deg of studentDeg ">
+                      <td>{{deg.subject.name}}</td>
+                      <td>{{deg.degree}}</td>
+                      <td>{{deg.subject.totalDegree}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+          </ng-container>
+          <ng-template #else2>
+              <div class="alert alert-info" role="alert">
+                  Not Have Any Course
+                </div>
+          </ng-template>
+          
+        
+
+      </div>
+      <div class="col-md-4">
+        <ul class="list-group">
+          <li class="list-group-item">Name : {{student.name}}</li>
+          <li class="list-group-item">Email : {{student.email}}</li>
+          <li class="list-group-item">Phone :{{student.mobile}}</li>
+          <li class="list-group-item"> Subject <span  class="mx-3" *ngFor="let item of student.subjects" > {{item.name}}</span> </li>
+         
+        </ul>
+      </div>
+    </div>
+</div>

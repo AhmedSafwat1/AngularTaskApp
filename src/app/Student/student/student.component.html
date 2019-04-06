@@ -1,0 +1,40 @@
+
+<div class="container">
+  <ng-container *ngIf="addFlage || editFlag">
+    <h1 class="mt-5 text-warning" *ngIf="editFlag">Edit Student </h1>
+    <h1 class="mt-5 text-success" *ngIf="!editFlag">Add Student </h1>
+    <form class="form-inline mt-4 text-center" > 
+    Name :  <input type="text" [(ngModel)]="student.name"   name = "name" class="mx-2"> 
+    Email : <input type="email"[(ngModel)]="student.email"  name="email" class="mx-2"> 
+    Mobile : <input type="text" [(ngModel)]="student.mobile" name="mobile" class="mx-2"> 
+    <button *ngIf="editFlag" type="submit" class="btn btn-success ml-2" (click)="updateDate()">Edit</button>
+    <button *ngIf="!editFlag" type="submit" class="btn btn-primary ml-2" (click)="save()">Add</button>
+  </form>
+  </ng-container>
+  
+  <h2 class="text-muted mt-4 h1 py-3 " >Student List</h2>
+  <button class="btn btn-primary" (click)="addFun()">Add New Student</button>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Mobile</th>
+        <th>Email</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of studentList ">
+          <th>{{item.name}}</th>
+          <th>{{item.mobile}}</th>
+          <th>{{item.email}}</th>
+          <th>
+            <!-- <a routerLink="edit/{{item._id}}" class="btn btn-success mr-3">Edit</a> -->
+            <button (click)="update(item)" class="btn btn-success mr-3">Edit</button>
+            <button  class="btn btn-danger  mr-3" (click)="delete(item)">Delete</button>
+            <a class="btn btn-info" routerLink="{{item._id}}">Details</a>
+          </th>
+      </tr>
+    </tbody>
+  </table>
+</div>
