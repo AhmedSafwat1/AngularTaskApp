@@ -1,14 +1,26 @@
 
+
 <div class="container">
   <ng-container *ngIf="addFlage || editFlag">
     <h1 class="mt-5 text-warning" *ngIf="editFlag">Edit Subject </h1>
     <h1 class="mt-5 text-success" *ngIf="!editFlag">Add Subject </h1>
-    <form class="form-inline mt-4 text-center" > 
+    <!-- <form class="form-inline mt-4 text-center" > 
     Name :  <input type="text" [(ngModel)]="student.name"   name = "name" class="mx-2"> 
     Totla Degree : <input type="number" [(ngModel)]="student.totalDegree" name="degree" class="mx-2"> 
     <button *ngIf="editFlag" type="submit" class="btn btn-success ml-2" (click)="updateDate()">Edit</button>
     <button *ngIf="!editFlag" type="submit" class="btn btn-primary ml-2" (click)="save()">Add</button>
-  </form>
+  </form> -->
+  <form class="example-form mt-4">
+      <mat-form-field class="example-full-width mx-2">
+        <input matInput placeholder="Name" [(ngModel)]="student.name"   name = "name" >
+      </mat-form-field>
+    
+      <mat-form-field class="example-full-width mx-2">
+          <input matInput placeholder="Total Degree" [(ngModel)]="student.totalDegree" name="degree" >
+      </mat-form-field>
+      <button mat-raised-button color="primary" class="ml-2" *ngIf="!editFlag" (click)="save()">Add</button>
+      <button mat-raised-button color="warn" class="ml-2" *ngIf="editFlag" (click)="save()">Update</button>
+    </form>
   </ng-container>
   
   <h2 class="text-muted mt-4 h1 py-3 " >Subject List</h2>

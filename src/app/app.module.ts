@@ -14,7 +14,7 @@ import { ErrorsComponent } from './layouts/errors/errors.component';
 import { EditComponent } from './Student/edit/edit.component';
 import { FormsModule ,ReactiveFormsModule} from "@angular/forms";
 import { AddSubjectComponent } from './Mangement/add-subject/add-subject.component';
-import {MatSelectModule,MatFormFieldModule} from '@angular/material';
+import {MatSelectModule,MatFormFieldModule,MatInputModule, MatButtonModule,} from '@angular/material';
 import { ManageComponent } from './Mangement/manage/manage.component';
 
 import { AddDegreeComponent } from './Mangement/add-degree/add-degree.component';
@@ -42,7 +42,10 @@ import { DetailsComponent } from './Student/details/details.component';
     FormsModule,
     MatSelectModule,
     MatFormFieldModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule
+  
     
   ],
   providers: [],

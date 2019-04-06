@@ -12,6 +12,7 @@ import { ManageComponent } from './Mangement/manage/manage.component';
 const routes: Routes = [
   
   {path:"student",component:StudentComponent},
+  {path:"",component:StudentComponent,pathMatch:"full"},
   {path:"student/:id",component:DetailsComponent},
   {path:"subject",component:SubjectComponent},
   {path:"manage",component:ManageComponent,children:[
